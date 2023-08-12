@@ -8,12 +8,14 @@ export function Goals({
   onSelect,
 }) {
   return (
-    <li
-      className="list-of-goals"
-      onClick={() => goal.id && goal.isCompleted === true}
-    >
-      {goal.input}
-      <p onClick={() => onDeleteGoal(goal.id)}>❌</p>
+    <div>
+      <li
+        className="list-of-goals"
+        onClick={() => goal.id && goal.isCompleted === true}
+      >
+        <strong>{goal.input}</strong>
+        <p onClick={() => onDeleteGoal(goal.id)}>✖️</p>
+      </li>
       <Button
         onClick={() => {
           setStatsIsOpen(!statsIsOpen);
@@ -22,6 +24,6 @@ export function Goals({
       >
         expand
       </Button>
-    </li>
+    </div>
   );
 }

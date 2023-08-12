@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Header from './Header';
 import { GoalTracker } from './GoalTracker';
 import { InputBar } from './InputBar';
@@ -7,14 +7,8 @@ import { Stats } from './Stats';
 const exampleGoals = [
   {
     id: 118836,
-    input: 'Learn React',
-    deadline: null,
-    completed: false,
-  },
-  {
-    id: 234436,
-    input: 'Make cool stuff',
-    deadline: null,
+    input: 'Make Some Goals 💪',
+    deadline: '',
     completed: false,
   },
 ];
@@ -37,35 +31,30 @@ export default function App() {
     setGoals((goals) => goals.filter((goal) => goal.id !== id));
   }
 
-  function handleDeadlineModify(toChange) {
-    goals.map((goal) =>
-      goal.deadline === null ? setDeadline(toChange) : null
-    );
-  }
-
   return (
     <>
-      <div className="left-side">
-        <Header />
-        <InputBar onAddGoal={handleGoalAddition} deadline={deadline} />
-        <GoalTracker
-          goals={goals}
-          onDeleteGoal={handleDeleteItem}
-          setStatsIsOpen={setStatsIsOpen}
-          statsIsOpen={statsIsOpen}
-          onSelect={handleSelection}
-        />
-      </div>
-      {statsIsOpen && (
-        <div className="right-side">
-          <Stats
-            selectedGoal={selectedGoal}
-            setSelectedGoal={setSelectedGoal}
-            setDeadline={setDeadline}
-            onDeadLineChange={handleDeadlineModify}
+      <Header />
+      <InputBar
+        onAddGoal={handleGoalAddition}
+        deadline={deadline}
+        setDeadline={setDeadline}
+      />
+      <div className="container">
+        <div className="left-side">
+          <GoalTracker
+            goals={goals}
+            onDeleteGoal={handleDeleteItem}
+            setStatsIsOpen={setStatsIsOpen}
+            statsIsOpen={statsIsOpen}
+            onSelect={handleSelection}
           />
         </div>
-      )}
+        {statsIsOpen && (
+          <div className="right-side">
+            <Stats selectedGoal={selectedGoal} />
+          </div>
+        )}
+      </div>
     </>
   );
 }

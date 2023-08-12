@@ -1,0 +1,59 @@
+html {
+  background-color: bisque;
+  font-family: sans-serif;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.container {
+  display: flex;
+  z-index: 1;
+  justify-content: space-between;
+}
+
+h1 {
+  text-align: center;
+}
+
+ul {
+  background-color: rgba(255, 255, 255, 0.636);
+  border: 1px solid black;
+  border-radius: 7px;
+}
+
+.right-side {
+  align-self: center;
+  border: 1px solid black;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.636);
+  border-radius: 7px;
+}
+
+li {
+  list-style-type: none;
+  flex-direction: row;
+  display: inline-flex;
+}
+
+.form-input-bar {
+  text-align: center;
+}
+
+.form-input-bar input {
+  border-radius: 7px;
+}
+
+button {
+  border-radius: 7px;
+}
+
+button:hover {
+  border-radius: 7px;
+  font-size: 14px;
+  background-color: rgba(191, 16, 51, 0.785);
+  color: aliceblue;
+}
+
+.list-of-goals {
+  border-bottom: 1px solid black;
+}
